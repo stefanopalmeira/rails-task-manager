@@ -1,0 +1,26 @@
+<h1>Edit task</h1>
+<%= form_for(@task) do |form| %>
+
+  <p>
+  <%= form.label :title %>
+  <%= form.text_field :title %>
+  </p>
+
+  <p>
+  <%= form.label :details %>
+  <%= form.text_field :details %>
+  </p>
+
+  <p>
+  <%= form.label :completed %>
+  <%= form.check_box :completed %>
+  </p>
+
+  <p>
+  <%= form.submit %>
+  </p>
+
+<% end %>
+
+<p><%= link_to 'All Tasks', tasks_path %></p>
+<%= link_to 'Destroy task', task_path(@task), method: :delete, data: { confirm: 'Are you sure?' } %>

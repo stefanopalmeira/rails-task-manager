@@ -1,0 +1,20 @@
+<h1>To do list</h1>
+<ul>
+
+  <% @tasks.each do |task| %>
+<li>
+<% if task.completed %>
+<i class="far fa-check-square"></i>
+<% else %>
+<i class="far fa-square"></i>
+<% end %>
+    <%= link_to(task.title, task_path(task)) %>
+    <%= link_to task_path(task), method: :delete, data: { confirm: 'Are you sure?' } do %>
+      <i class="far fa-trash-alt"></i>
+    <% end %>
+   </li>
+  <% end %>
+</ul>
+
+
+<p><%= link_to 'Create a new task', tasks_new_path %></p>
